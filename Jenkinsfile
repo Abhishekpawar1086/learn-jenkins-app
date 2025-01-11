@@ -20,8 +20,10 @@ pipeline {
                 '''
             }
         stage('Test') {
+            sh'''
             steps {
                 test -f build/index.html
+                '''
             }
         }    
         }
