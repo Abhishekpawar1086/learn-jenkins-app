@@ -19,6 +19,11 @@ pipeline {
                    ls -la
                 '''
             }
+        stage(test) {
+            agent {
+                sh 'test -f build/index.html'
+            }
+        }   
         }
     }
 }
