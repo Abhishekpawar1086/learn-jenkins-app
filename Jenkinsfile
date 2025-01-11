@@ -27,7 +27,12 @@ pipeline {
                 '''
             }
           } 
-        }   
+        } 
+        post {
+            always {
+                echo 'test'
+            }
+        }  
     }
 
 
