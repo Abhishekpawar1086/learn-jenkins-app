@@ -17,13 +17,9 @@ pipeline {
                    npm ci
                    npm run build
                    ls -la
+                   test -f build/index.html
                 '''
             }
-        stage(test) {
-            agent {
-                sh 'test -f build/index.html'
-            }
-        }   
         }
     }
 }
