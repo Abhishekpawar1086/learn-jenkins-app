@@ -17,9 +17,13 @@ pipeline {
                    npm ci
                    npm run build
                    ls -la
-                   test -f build/index.html
                 '''
             }
+        stage('Test') {
+            steps {
+                test -f build/index.html
+            }
+        }    
         }
     }
 }
