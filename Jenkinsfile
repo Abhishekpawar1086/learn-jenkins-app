@@ -32,7 +32,7 @@ pipeline {
                     
                     steps {
                         sh '''
-                            echo"yg"
+                            echo 'write'
                         '''
                     }
                     post {
