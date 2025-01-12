@@ -30,10 +30,7 @@ pipeline {
             parallel {
                 stage('Unit tests') {
                     agent {
-                        docker {
-                            image 'node:18-alpine'
-                            reuseNode true
-                        }
+                        echo 'do something'
                     }
 
                     steps {
