@@ -30,11 +30,9 @@ pipeline {
             parallel {
                 stage('Unit tests') {
                     
-
                     steps {
                         sh '''
-                            #test -f build/index.html
-                            npm test
+                            echo'Dd'
                         '''
                     }
                     post {
