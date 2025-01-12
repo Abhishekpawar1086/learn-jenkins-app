@@ -28,10 +28,8 @@ pipeline {
 
         stage('Tests') {
             parallel {
-                stage('Unit tests') {                    
-                        sh'''
-                        echo'do something'
-                        '''
+                stage('Unit tests') {
+                    
 
                     steps {
                         sh '''
@@ -131,4 +129,4 @@ pipeline {
             }
         }
     }
- }
+}
