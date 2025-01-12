@@ -30,7 +30,7 @@ pipeline {
             parallel {
                 stage('Unit tests') {
                     agent {
-                        echo 'do something'
+                        echo'do something'
                     }
 
                     steps {
