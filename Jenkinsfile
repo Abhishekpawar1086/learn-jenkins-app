@@ -32,7 +32,7 @@ pipeline {
                     agent {
                         sh'''
                         echo'do something'
-                        sh'''
+                        '''
                     }
 
                     steps {
