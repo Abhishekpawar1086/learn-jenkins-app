@@ -28,12 +28,10 @@ pipeline {
 
         stage('Tests') {
             parallel {
-                stage('Unit tests') {
-                    agent {
+                stage('Unit tests') {                    
                         sh'''
                         echo'do something'
                         '''
-                    }
 
                     steps {
                         sh '''
@@ -133,4 +131,4 @@ pipeline {
             }
         }
     }
-}
+ }
