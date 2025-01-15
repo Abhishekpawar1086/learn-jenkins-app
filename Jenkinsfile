@@ -27,10 +27,9 @@ pipeline {
         }
 
         stage('Tests') {
-            parallel {
-                stage('Unit tests') {
-                    agent {
-                        docker {
+            agent {
+                 
+                    docker {
                             image 'node:18-alpine'
                             reuseNode true
                         }
@@ -52,7 +51,7 @@ pipeline {
                 stage('E2E') {
                     agent {
                         docker {
-                            image 'okteto/playwright:chromium'
+                            image 'node:18-alpine'
                             reuseNode true
                         }
                     }
@@ -67,17 +66,15 @@ pipeline {
 
                     post {
                         always {
-                            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'okteto/playwright:chromium-report', reportFiles: 'index.html', reportName: 'Local E2E', reportTitles: '', useWrapperFileDirectly: true])
+                            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'node:18-alpine', reportFiles: 'index.html', reportName: 'Local E2E', reportTitles: '', useWrapperFileDirectly: true])
                         }
                     }
                 }
-            }
-        }
-
+            
         stage('Deploy staging') {
             agent {
                 docker {
-                    image 'okteto/playwright:chromium'
+                    image 'node:18-alpine'
                     reuseNode true
                 }
             }
@@ -107,7 +104,7 @@ pipeline {
         stage('Deploy prod') {
             agent {
                 docker {
-                    image 'okteto/playwright:chromium'
+                    image 'node:18-alpine'
                     reuseNode true
                 }
             }
@@ -129,7 +126,7 @@ pipeline {
 
             post {
                 always {
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'okteto/playwright:chromium-report', reportFiles: 'index.html', reportName: 'Prod E2E', reportTitles: '', useWrapperFileDirectly: true])
+                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'node:18-alpine', reportFiles: 'index.html', reportName: 'Prod E2E', reportTitles: '', useWrapperFileDirectly: true])
                 }
             }
         }
